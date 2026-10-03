@@ -15,10 +15,11 @@ import {
   Lock,
   Mail,
   LogOut,
-  Database,
   Trash2,
   Shield,
-  Key
+  Key,
+  Clock,
+  ChevronDown
 } from 'lucide-react';
 
 export default function App() {
@@ -27,6 +28,19 @@ export default function App() {
   const [favorites, setFavorites] = useState({});
   const [showCreateModal, setShowCreateModal] = useState(false);
   
+  // 7 Languages Selector state
+  const languages = [
+    { code: 'en', name: 'English', flag: '🇺🇸' },
+    { code: 'uk', name: 'Українська', flag: '🇺🇦' },
+    { code: 'es', name: 'Español', flag: '🇪🇸' },
+    { code: 'de', name: 'Deutsch', flag: '🇩🇪' },
+    { code: 'fr', name: 'Français', flag: '🇫🇷' },
+    { code: 'pl', name: 'Polski', flag: '🇵🇱' },
+    { code: 'zh', name: '中文', flag: '🇨🇳' }
+  ];
+  const [currentLang, setCurrentLang] = useState(languages[0]);
+  const [showLangMenu, setShowLangMenu] = useState(false);
+
   // Auth state
   const [currentUser, setCurrentUser] = useState(null); // { username, role: 'user' | 'admin' }
   const [showAuthModal, setShowAuthModal] = useState(false);
@@ -38,6 +52,8 @@ export default function App() {
   const [newTitle, setNewTitle] = useState('');
   const [newCategory, setNewCategory] = useState('Graphics & Design');
   const [newPrice, setNewPrice] = useState(50);
+  const [newPriceType, setNewPriceType] = useState('fixed'); // 'fixed' | 'hourly'
+  const [newHourlyRate, setNewHourlyRate] = useState(35);
   const [newSeller, setNewSeller] = useState('');
   const [newDelivery, setNewDelivery] = useState('2 days');
 
@@ -51,7 +67,7 @@ export default function App() {
     'Writing & Translation'
   ];
 
-  // In-memory Neon DB synced Gigs state
+  // In-memory synced Gigs state
   const [gigs, setGigs] = useState([
     {
       id: 1,
@@ -63,6 +79,8 @@ export default function App() {
       rating: 4.9,
       reviewsCount: 342,
       price: 120,
+      priceType: 'fixed',
+      hourlyRate: 45,
       deliveryTime: '2 days',
       image: 'https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=800&auto=format&fit=crop&q=80',
       pro: true
@@ -77,6 +95,8 @@ export default function App() {
       rating: 5.0,
       reviewsCount: 189,
       price: 250,
+      priceType: 'hourly',
+      hourlyRate: 65,
       deliveryTime: '3 days',
       image: 'https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=800&auto=format&fit=crop&q=80',
       pro: true
@@ -91,6 +111,8 @@ export default function App() {
       rating: 4.8,
       reviewsCount: 512,
       price: 85,
+      priceType: 'fixed',
+      hourlyRate: 30,
       deliveryTime: '1 day',
       image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&auto=format&fit=crop&q=80',
       pro: false
@@ -105,6 +127,8 @@ export default function App() {
       rating: 4.9,
       reviewsCount: 204,
       price: 150,
+      priceType: 'hourly',
+      hourlyRate: 50,
       deliveryTime: '24 hours',
       image: 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=800&auto=format&fit=crop&q=80',
       pro: true
@@ -138,7 +162,6 @@ export default function App() {
       setShowAuthModal(false);
       setAuthForm({ username: '', email: '', password: '', rolePasscode: '' });
     } else {
-      // Login mode
       let role = 'user';
       if (authForm.username.toLowerCase() === 'admin' && authForm.password === 'admin123') {
         role = 'admin';
@@ -163,6 +186,8 @@ export default function App() {
       rating: 5.0,
       reviewsCount: 1,
       price: Number(newPrice) || 50,
+      priceType: newPriceType,
+      hourlyRate: Number(newHourlyRate) || 35,
       deliveryTime: newDelivery,
       image: 'https://images.unsplash.com/photo-1522542550221-31fd19575a2d?w=800&auto=format&fit=crop&q=80',
       pro: true
@@ -187,36 +212,12 @@ export default function App() {
   return (
     <div className="min-h-screen bg-[#0d0f12] text-white font-sans flex flex-col">
       
-      {/* Neon Serverless DB Connection Status Bar */}
-      <div className="bg-[#091512] border-b border-[#1dbf73]/30 px-6 py-1.5 flex items-center justify-between text-xs text-gray-300">
-        <div className="flex items-center gap-2">
-          <Database className="w-3.5 h-3.5 text-[#1dbf73] animate-pulse" />
-          <span className="font-mono text-[11px]">Neon Database: <strong className="text-[#1dbf73]">postgresql://fiverr-clone-db.neon.tech/neondb</strong></span>
-        </div>
-        <div className="flex items-center gap-3">
-          {currentUser ? (
-            <div className="flex items-center gap-2">
-              <span className={`px-2 py-0.5 rounded text-[10px] font-black uppercase ${currentUser.role === 'admin' ? 'bg-amber-400 text-black' : 'bg-[#1dbf73]/20 text-[#1dbf73]'}`}>
-                {currentUser.role === 'admin' ? '⚡ ADMIN ACCESS' : 'USER'}
-              </span>
-              <span className="font-bold text-white">{currentUser.username}</span>
-              <button onClick={() => setCurrentUser(null)} className="p-1 hover:text-red-400 ml-1">
-                <LogOut className="w-3.5 h-3.5" />
-              </button>
-            </div>
-          ) : (
-            <span className="text-gray-400 font-mono text-[11px]">Guest Mode (Sign in for Admin rights)</span>
-          )}
-        </div>
-      </div>
-
       {/* Fiverr Navbar */}
       <header className="sticky top-0 z-40 bg-[#12161a] border-b border-[#222930] px-6 py-3 flex items-center justify-between gap-6">
         <div className="flex items-center gap-6">
           <div className="flex items-center gap-1 cursor-pointer">
             <span className="text-2xl font-black tracking-tight text-white">fiverr</span>
             <span className="w-2 h-2 rounded-full bg-[#1dbf73] mt-3"></span>
-            <span className="ml-2 bg-[#1dbf73]/15 text-[#1dbf73] border border-[#1dbf73]/30 text-[10px] font-black px-2 py-0.5 rounded uppercase">NEON DB</span>
           </div>
 
           {/* Search bar */}
@@ -232,11 +233,37 @@ export default function App() {
           </div>
         </div>
 
-        {/* Navigation Action Links */}
+        {/* Navigation Action Links & 7 Languages Selector */}
         <div className="flex items-center gap-4 text-sm font-semibold">
-          <button className="hidden lg:flex items-center gap-1.5 text-gray-300 hover:text-[#1dbf73] transition-colors">
-            <Globe className="w-4 h-4" /> English
-          </button>
+          
+          {/* 7 Languages Switcher Dropdown */}
+          <div className="relative">
+            <button 
+              onClick={() => setShowLangMenu(!showLangMenu)}
+              className="flex items-center gap-1.5 text-gray-300 hover:text-[#1dbf73] px-3 py-1.5 rounded-lg border border-[#2e3742] bg-[#1c2229] transition-colors text-xs font-bold"
+            >
+              <Globe className="w-3.5 h-3.5 text-[#1dbf73]" />
+              <span>{currentLang.flag} {currentLang.name}</span>
+              <ChevronDown className="w-3.5 h-3.5 text-gray-400" />
+            </button>
+
+            {showLangMenu && (
+              <div className="absolute right-0 mt-2 w-44 bg-[#12161a] border border-[#2e3742] rounded-xl shadow-2xl overflow-hidden z-50">
+                {languages.map((lang) => (
+                  <button
+                    key={lang.code}
+                    onClick={() => { setCurrentLang(lang); setShowLangMenu(false); }}
+                    className={`w-full px-4 py-2 text-left text-xs font-bold flex items-center justify-between transition-colors ${
+                      currentLang.code === lang.code ? 'bg-[#1dbf73] text-black' : 'text-gray-300 hover:bg-[#1c2229] hover:text-white'
+                    }`}
+                  >
+                    <span>{lang.flag} {lang.name}</span>
+                    {currentLang.code === lang.code && <span>✓</span>}
+                  </button>
+                ))}
+              </div>
+            )}
+          </div>
           
           <button 
             onClick={() => setShowCreateModal(true)}
@@ -298,13 +325,13 @@ export default function App() {
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-8">
           <div className="space-y-4 max-w-2xl">
             <div className="inline-flex items-center gap-2 bg-[#1dbf73]/20 text-[#1dbf73] border border-[#1dbf73]/40 px-3 py-1 rounded-full text-xs font-extrabold uppercase">
-              <Zap className="w-3.5 h-3.5" /> Fiverr Marketplace + Neon DB Serverless
+              <Zap className="w-3.5 h-3.5" /> Fiverr Marketplace • Hourly & Fixed Rates
             </div>
             <h1 className="text-4xl sm:text-5xl font-black text-white leading-tight">
-              Find top <span className="text-[#1dbf73]">freelance talent</span> powered by Neon DB
+              Find top <span className="text-[#1dbf73]">freelance talent</span> with flexible rates
             </h1>
             <p className="text-gray-300 text-sm sm:text-base leading-relaxed">
-              Create an account or sign up with Admin passcode (<code className="bg-black/50 px-1.5 py-0.5 rounded text-amber-300">admin123</code>) for instant access.
+              Hire top rated specialists by project or per hour. Sign up with Admin passcode (<code className="bg-black/50 px-1.5 py-0.5 rounded text-amber-300">admin123</code>) for instant access.
             </p>
           </div>
 
@@ -400,11 +427,24 @@ export default function App() {
                 </div>
               </div>
 
-              {/* Price Footer */}
-              <div className="px-4 py-3 border-t border-[#222930] bg-[#161b20] flex items-center justify-between text-xs">
-                <span className="text-gray-400 font-medium">STARTING AT</span>
-                <div className="text-base font-black text-white">
-                  ${gig.price}
+              {/* Price & Hourly Rate Footer */}
+              <div className="p-4 border-t border-[#222930] flex items-center justify-between bg-[#0f1216]">
+                <div className="flex items-center gap-1 text-xs text-gray-400 font-medium">
+                  <Clock className="w-3.5 h-3.5 text-[#1dbf73]" /> {gig.deliveryTime}
+                </div>
+
+                <div className="text-right">
+                  {gig.priceType === 'hourly' ? (
+                    <div>
+                      <span className="text-[10px] uppercase font-bold text-[#1dbf73] block">Почасовка</span>
+                      <span className="text-base font-black text-[#1dbf73]">${gig.hourlyRate} <span className="text-xs text-gray-400 font-normal">/ год</span></span>
+                    </div>
+                  ) : (
+                    <div>
+                      <span className="text-[10px] uppercase font-bold text-gray-400 block">Starting at</span>
+                      <span className="text-base font-black text-white">${gig.price}</span>
+                    </div>
+                  )}
                 </div>
               </div>
             </div>
@@ -552,29 +592,44 @@ export default function App() {
                 </div>
 
                 <div>
-                  <label className="block text-xs font-bold text-gray-400 uppercase mb-1">Starting Price ($)</label>
-                  <input 
-                    type="number" 
-                    required
-                    min={5}
-                    value={newPrice}
-                    onChange={(e) => setNewPrice(e.target.value)}
-                    className="w-full bg-[#1c2229] text-white px-3.5 py-2.5 rounded-lg border border-[#2e3742] text-sm focus:outline-none focus:border-[#1dbf73]"
-                  />
+                  <label className="block text-xs font-bold text-gray-400 uppercase mb-1">Pricing Model</label>
+                  <select 
+                    value={newPriceType} 
+                    onChange={(e) => setNewPriceType(e.target.value)}
+                    className="w-full bg-[#1c2229] text-white px-3 py-2.5 rounded-lg border border-[#2e3742] text-sm focus:outline-none focus:border-[#1dbf73]"
+                  >
+                    <option value="fixed">Fixed Price ($)</option>
+                    <option value="hourly">Почасовка ($ / год)</option>
+                  </select>
                 </div>
               </div>
 
               <div className="grid grid-cols-2 gap-3">
-                <div>
-                  <label className="block text-xs font-bold text-gray-400 uppercase mb-1">Seller Username</label>
-                  <input 
-                    type="text" 
-                    value={currentUser ? currentUser.username : newSeller}
-                    onChange={(e) => setNewSeller(e.target.value)}
-                    disabled={!!currentUser}
-                    className="w-full bg-[#1c2229] text-white px-3.5 py-2.5 rounded-lg border border-[#2e3742] text-sm focus:outline-none focus:border-[#1dbf73]"
-                  />
-                </div>
+                {newPriceType === 'fixed' ? (
+                  <div>
+                    <label className="block text-xs font-bold text-gray-400 uppercase mb-1">Fixed Price ($)</label>
+                    <input 
+                      type="number" 
+                      required
+                      min={5}
+                      value={newPrice}
+                      onChange={(e) => setNewPrice(e.target.value)}
+                      className="w-full bg-[#1c2229] text-white px-3.5 py-2.5 rounded-lg border border-[#2e3742] text-sm focus:outline-none focus:border-[#1dbf73]"
+                    />
+                  </div>
+                ) : (
+                  <div>
+                    <label className="block text-xs font-bold text-[#1dbf73] uppercase mb-1">Почасовка ($ / год)</label>
+                    <input 
+                      type="number" 
+                      required
+                      min={5}
+                      value={newHourlyRate}
+                      onChange={(e) => setNewHourlyRate(e.target.value)}
+                      className="w-full bg-[#1c2229] text-white px-3.5 py-2.5 rounded-lg border border-[#1dbf73] text-sm focus:outline-none focus:border-[#1dbf73]"
+                    />
+                  </div>
+                )}
 
                 <div>
                   <label className="block text-xs font-bold text-gray-400 uppercase mb-1">Delivery Time</label>
@@ -585,6 +640,17 @@ export default function App() {
                     className="w-full bg-[#1c2229] text-white px-3.5 py-2.5 rounded-lg border border-[#2e3742] text-sm focus:outline-none focus:border-[#1dbf73]"
                   />
                 </div>
+              </div>
+
+              <div>
+                <label className="block text-xs font-bold text-gray-400 uppercase mb-1">Seller Username</label>
+                <input 
+                  type="text" 
+                  value={currentUser ? currentUser.username : newSeller}
+                  onChange={(e) => setNewSeller(e.target.value)}
+                  disabled={!!currentUser}
+                  className="w-full bg-[#1c2229] text-white px-3.5 py-2.5 rounded-lg border border-[#2e3742] text-sm focus:outline-none focus:border-[#1dbf73]"
+                />
               </div>
 
               <div className="flex justify-end gap-3 pt-3 border-t border-[#222930]">
@@ -609,7 +675,7 @@ export default function App() {
 
       {/* Footer */}
       <footer className="bg-[#12161a] border-t border-[#222930] py-6 px-6 text-center text-xs text-gray-400">
-        <p>© 2026 Fiverr Freelance Clone. Powered by Neon Serverless DB.</p>
+        <p>© 2026 Fiverr Freelance Marketplace.</p>
       </footer>
 
     </div>
