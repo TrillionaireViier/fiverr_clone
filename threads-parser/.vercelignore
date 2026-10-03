@@ -1,0 +1,4 @@
+storage/
+output/
+.env
+*.log

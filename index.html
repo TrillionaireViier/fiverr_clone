@@ -1,0 +1,621 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>All Products - Luxury Fashion</title>
+<link href="../header-styles.css" rel="stylesheet"/>
+<link href="../styles.css" rel="stylesheet"/>
+<link href="../cart-styles.css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&amp;family=Inter:wght@300;400;500;600&amp;display=swap" rel="stylesheet"/>
+</head>
+<body>
+<header class="header" id="mainHeader">
+<div class="top-announcement-bar" style="background: #000; color: #fff; text-align: center; padding: 4px 15px; font-size: 0.8rem; border-bottom: 1px solid rgba(255,255,255,0.2); width: 100%; z-index: 1000; position: relative;">
+<span class="banner-text"> Join Our Exclusive Club | Get Up to 90% Off Luxury Items &amp; VIP Benefits</span>
+<a href="/dashboard" style="color: #fff; text-decoration: underline; margin-left: 15px; font-weight: bold; white-space: nowrap;">Sign In to Account or Sign Up</a>
+</div>
+<nav class="navbar">
+<div class="nav-container">
+<div class="nav-logo">
+<a class="brand-text" href="/">KURAJ FASHION</a>
+</div>
+<ul class="nav-menu" id="navMenu">
+<li class="nav-item"><a class="nav-link" href="/about">About Us</a></li>
+<li class="nav-item dropdown">
+<a class="nav-link dropdown-toggle" href="javascript:void(0)">Our Collections</a>
+<ul class="dropdown-menu">
+<li class="dropdown-submenu">
+<a class="dropdown-item" href="/collections/timepieces">Timepieces ›</a>
+<ul class="dropdown-menu">
+<li><a href="/collections/mens-watches">For Him</a></li>
+<li><a href="/collections/womens-watches">For Her</a></li>
+</ul>
+</li>
+<li class="dropdown-submenu">
+<a class="dropdown-item" href="/collections/jewelry">Jewelry ›</a>
+<ul class="dropdown-menu">
+<li><a href="/collections/mens-jewelry">For Him</a></li>
+<li><a href="/collections/womens-jewelry">For Her</a></li>
+</ul>
+</li>
+<li class="dropdown-submenu">
+<a class="dropdown-item" href="/collections/handbags">Handbags ›</a>
+<ul class="dropdown-menu">
+<li><a href="/collections/mens-bags">For Him</a></li>
+<li><a href="/collections/womens-handbags">For Her</a></li>
+</ul>
+</li>
+<li class="dropdown-submenu">
+<a class="dropdown-item" href="/collections/accessories">Accessories ›</a>
+<ul class="dropdown-menu">
+<li><a href="/collections/mens-accessories">For Him</a></li>
+<li><a href="/collections/womens-accessories">For Her</a></li>
+</ul>
+</li>
+<li class="dropdown-submenu">
+<a class="dropdown-item" href="/collections/clothing">Clothing ›</a>
+<ul class="dropdown-menu">
+<li><a href="/collections/mens-apparel">For Him</a></li>
+<li><a href="/collections/womens-apparel">For Her</a></li>
+</ul>
+</li>
+<li class="dropdown-submenu">
+<a class="dropdown-item" href="/collections/gifts">Gifts ›</a>
+<ul class="dropdown-menu">
+<li><a href="/collections/mens-gifts">For Him</a></li>
+<li><a href="/collections/womens-gifts">For Her</a></li>
+</ul>
+</li>
+<li><a class="dropdown-item" href="/collections/limited-drops">Limited Drops</a></li>
+<li><a class="dropdown-item" href="/all-products" style="font-weight: bold; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 10px; margin-top: 5px;">All Products</a></li>
+</ul>
+</li>
+<li class="nav-item dropdown">
+<a class="nav-link dropdown-toggle" href="/all-products">For Her / For Him</a>
+<ul class="dropdown-menu">
+<li class="dropdown-submenu">
+<a class="dropdown-item" href="/for-her">For Her ›</a>
+<ul class="dropdown-menu">
+<li><a href="/collections/womens-watches">Timepieces</a></li>
+<li><a href="/collections/womens-jewelry">Jewelry</a></li>
+<li><a href="/collections/womens-handbags">Handbags</a></li>
+<li><a href="/collections/womens-accessories">Accessories</a></li>
+<li><a href="/collections/womens-apparel">Apparel</a></li>
+<li><a href="/collections/womens-gifts">Gifts</a></li>
+</ul>
+</li>
+<li class="dropdown-submenu">
+<a class="dropdown-item" href="/for-him">For Him ›</a>
+<ul class="dropdown-menu">
+<li><a href="/collections/mens-watches">Timepieces</a></li>
+<li><a href="/collections/mens-jewelry">Jewelry</a></li>
+<li><a href="/collections/mens-bags">Bags</a></li>
+<li><a href="/collections/mens-accessories">Accessories</a></li>
+<li><a href="/collections/mens-apparel">Apparel</a></li>
+<li><a href="/collections/mens-gifts">Gifts</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="nav-item"><a class="nav-link" href="/dashboard">Membership</a></li>
+<li class="nav-item"><a class="nav-link" href="/contact">Contact Us</a></li>
+</ul>
+<div class="nav-actions">
+<div class="wishlist-icon-container" onclick="window.toggleWishlist()" title="Wishlist">
+<svg class="wishlist-icon" fill="none" stroke="currentColor" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+<span class="wishlist-badge" id="wishlistCount">0</span>
+</div>
+<div class="cart-icon-container" onclick="toggleCart()" title="Shopping Cart">
+<svg class="cart-icon" fill="none" height="24" stroke="white" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="24"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg>
+<span class="cart-badge" id="cartCount">0</span>
+</div>
+<a class="nav-auth-btn sign-in" href="/dashboard" id="signInBtn">Sign In</a>
+<a class="nav-auth-btn sign-up" href="/dashboard" id="signUpBtn">Sign Up</a>
+</div>
+<div class="nav-toggle" id="mobile-menu" onclick="document.getElementById('navMenu').classList.toggle('active')">
+<span class="bar"></span><span class="bar"></span><span class="bar"></span>
+</div>
+</div>
+</nav>
+</header>
+<div class="cart-overlay" id="cartOverlay" onclick="closeCart()"></div>
+<div class="cart-sidebar" id="cartSidebar">
+<div class="cart-header">
+<h2>Shopping Cart</h2>
+<button class="cart-close" onclick="closeCart()">×</button>
+</div>
+<div class="cart-body">
+<div class="cart-empty" id="cartEmpty">
+<div class="cart-empty-icon">🛍️</div>
+<p>Your cart is empty</p>
+<button class="cta-button" onclick="closeCart()">Continue Shopping</button>
+</div>
+<div class="cart-content" id="cartContent">
+<div class="cart-items" id="cartItems"></div>
+</div>
+</div>
+<section class="all-products-section">
+<div class="container">
+<h1 class="page-title">All Products</h1>
+<p class="page-subtitle">Explore our complete collection of luxury items</p>
+<div class="filter-bar">
+<button class="filter-btn active" data-category="all">All</button>
+<button class="filter-btn" data-category="timepieces">Timepieces</button>
+<button class="filter-btn" data-category="jewelry">Jewelry</button>
+<button class="filter-btn" data-category="handbags">Handbags</button>
+<button class="filter-btn" data-category="accessories">Accessories</button>
+<button class="filter-btn" data-category="men">For Him</button>
+<button class="filter-btn" data-category="women">For Her</button>
+</div>
+<div class="products-grid">
+<div class="product-card" data-category="timepieces men" style="background: var(--bg-light, #111); border-radius: 12px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.3); border: 1px solid var(--border-color, #333); display: flex; flex-direction: column;">
+<a href="/product?title=Luxury%20Chronograph%20Watch&amp;price=8500&amp;image=../images/watch-chronograph.png" style="display: block; text-decoration: none;">
+<img alt="Luxury Chronograph Watch" class="product-image" src="/images/watch-chronograph.png" style="width: 100%; height: 280px; object-fit: cover;"/>
+</a>
+<div class="product-info" style="padding: 18px; display: flex; flex-direction: column; flex-grow: 1;">
+<h3 style="margin: 0 0 4px 0; color: #ffffff; font-size: 1rem; font-family: 'Inter', sans-serif;">Luxury Chronograph Watch</h3>
+<div style="display: flex; align-items: center; gap: 8px; margin-bottom: 12px;">
+<span style="text-decoration: line-through; color: #666; font-size: 0.9rem;">$28,333</span>
+<span style="color: #ffffff; font-weight: 700; font-size: 1.1rem;">$8,500</span>
+<span style="background: rgba(255,255,255,0.2); color: #fff; padding: 2px 8px; border-radius: 4px; font-size: 0.75rem;">-70%</span>
+</div>
+<div style="display: flex; gap: 10px; margin-top: auto;">
+<button onclick="event.stopPropagation(); addToCart('Luxury Chronograph Watch', '$3,500', '/images/watch-chronograph.png'); proceedToCheckout();" style="flex:1;padding:10px;background:#000;color:#fff;border:1px solid #fff;border-radius:6px;cursor:pointer;font-weight:600;font-size:0.9rem;transition:transform 0.2s;margin-right:10px;">Buy Now</button>
+<button onclick="addToCart('Luxury Chronograph Watch', '$3,500', '/images/watch-chronograph.png')" style="flex:1;padding:10px;background:#fff;color:#000;border:none;border-radius:6px;cursor:pointer;font-weight:600;font-size:0.9rem;transition:transform 0.2s;">Add to Cart</button>
+<button onclick="addToWishlist('Luxury Chronograph Watch', '$3,500', '/images/watch-chronograph.png')" style="width:38px;height:38px;border-radius:6px;background:rgba(255,255,255,0.05);color:#fff;border:1px solid rgba(255,255,255,0.2);font-size:1.2rem;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background 0.2s;">♡</button>
+</div>
+<button onclick="window.location.href='/product?title=Luxury%20Chronograph%20Watch&amp;price=8500&amp;image=../images/watch-chronograph.png'" style="width:100%;padding:10px;background:transparent;color:#fff;border:1px solid #fff;border-radius:6px;cursor:pointer;font-weight:600;margin-top:10px;transition:background 0.2s;">Learn More</button>
+</div>
+</div>
+<div class="product-card" data-category="accessories men" style="background: var(--bg-light, #111); border-radius: 12px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.3); border: 1px solid var(--border-color, #333); display: flex; flex-direction: column;">
+<a href="/product?title=Premium%20Leather%20Wallet&amp;price=450&amp;image=../images/leather-wallet.png" style="display: block; text-decoration: none;">
+<img alt="Premium Leather Wallet" class="product-image" src="/images/leather-wallet.png" style="width: 100%; height: 280px; object-fit: cover;"/>
+</a>
+<div class="product-info" style="padding: 18px; display: flex; flex-direction: column; flex-grow: 1;">
+<h3 style="margin: 0 0 4px 0; color: #ffffff; font-size: 1rem; font-family: 'Inter', sans-serif;">Premium Leather Wallet</h3>
+<div style="display: flex; align-items: center; gap: 8px; margin-bottom: 12px;">
+<span style="text-decoration: line-through; color: #666; font-size: 0.9rem;">$1,500</span>
+<span style="color: #ffffff; font-weight: 700; font-size: 1.1rem;">$450</span>
+<span style="background: rgba(255,255,255,0.2); color: #fff; padding: 2px 8px; border-radius: 4px; font-size: 0.75rem;">-70%</span>
+</div>
+<div style="display: flex; gap: 10px; margin-top: auto;">
+<button onclick="event.stopPropagation(); addToCart('Premium Leather Wallet', '$9,800', '/images/leather-wallet.png'); proceedToCheckout();" style="flex:1;padding:10px;background:#000;color:#fff;border:1px solid #fff;border-radius:6px;cursor:pointer;font-weight:600;font-size:0.9rem;transition:transform 0.2s;margin-right:10px;">Buy Now</button>
+<button onclick="addToCart('Premium Leather Wallet', '$9,800', '/images/leather-wallet.png')" style="flex:1;padding:10px;background:#fff;color:#000;border:none;border-radius:6px;cursor:pointer;font-weight:600;font-size:0.9rem;transition:transform 0.2s;">Add to Cart</button>
+<button onclick="addToWishlist('Premium Leather Wallet', '$9,800', '/images/leather-wallet.png')" style="width:38px;height:38px;border-radius:6px;background:rgba(255,255,255,0.05);color:#fff;border:1px solid rgba(255,255,255,0.2);font-size:1.2rem;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background 0.2s;">♡</button>
+</div>
+<button onclick="window.location.href='/product?title=Premium%20Leather%20Wallet&amp;price=450&amp;image=../images/leather-wallet.png'" style="width:100%;padding:10px;background:transparent;color:#fff;border:1px solid #fff;border-radius:6px;cursor:pointer;font-weight:600;margin-top:10px;transition:background 0.2s;">Learn More</button>
+</div>
+</div>
+<div class="product-card" data-category="jewelry men" style="background: var(--bg-light, #111); border-radius: 12px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.3); border: 1px solid var(--border-color, #333); display: flex; flex-direction: column;">
+<a href="/product?title=18K%20Gold%20Cufflinks&amp;price=1200&amp;image=../images/gold-cufflinks.png" style="display: block; text-decoration: none;">
+<img alt="18K Gold Cufflinks" class="product-image" src="/images/gold-cufflinks.png" style="width: 100%; height: 280px; object-fit: cover;"/>
+</a>
+<div class="product-info" style="padding: 18px; display: flex; flex-direction: column; flex-grow: 1;">
+<h3 style="margin: 0 0 4px 0; color: #ffffff; font-size: 1rem; font-family: 'Inter', sans-serif;">18K Gold Cufflinks</h3>
+<div style="display: flex; align-items: center; gap: 8px; margin-bottom: 12px;">
+<span style="text-decoration: line-through; color: #666; font-size: 0.9rem;">$4,000</span>
+<span style="color: #ffffff; font-weight: 700; font-size: 1.1rem;">$1,200</span>
+<span style="background: rgba(255,255,255,0.2); color: #fff; padding: 2px 8px; border-radius: 4px; font-size: 0.75rem;">-70%</span>
+</div>
+<div style="display: flex; gap: 10px; margin-top: auto;">
+<button onclick="event.stopPropagation(); addToCart('18K Gold Cufflinks', '$9,600', '/images/gold-cufflinks.png'); proceedToCheckout();" style="flex:1;padding:10px;background:#000;color:#fff;border:1px solid #fff;border-radius:6px;cursor:pointer;font-weight:600;font-size:0.9rem;transition:transform 0.2s;margin-right:10px;">Buy Now</button>
+<button onclick="addToCart('18K Gold Cufflinks', '$9,600', '/images/gold-cufflinks.png')" style="flex:1;padding:10px;background:#fff;color:#000;border:none;border-radius:6px;cursor:pointer;font-weight:600;font-size:0.9rem;transition:transform 0.2s;">Add to Cart</button>
+<button onclick="addToWishlist('18K Gold Cufflinks', '$9,600', '/images/gold-cufflinks.png')" style="width:38px;height:38px;border-radius:6px;background:rgba(255,255,255,0.05);color:#fff;border:1px solid rgba(255,255,255,0.2);font-size:1.2rem;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background 0.2s;">♡</button>
+</div>
+<button onclick="window.location.href='/product?title=18K%20Gold%20Cufflinks&amp;price=1200&amp;image=../images/gold-cufflinks.png'" style="width:100%;padding:10px;background:transparent;color:#fff;border:1px solid #fff;border-radius:6px;cursor:pointer;font-weight:600;margin-top:10px;transition:background 0.2s;">Learn More</button>
+</div>
+</div>
+<div class="product-card" data-category="accessories men" style="background: var(--bg-light, #111); border-radius: 12px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.3); border: 1px solid var(--border-color, #333); display: flex; flex-direction: column;">
+<a href="/product?title=Designer%20Sunglasses&amp;price=650&amp;image=../images/designer-sunglasses.png" style="display: block; text-decoration: none;">
+<img alt="Designer Sunglasses" class="product-image" src="/images/designer-sunglasses.png" style="width: 100%; height: 280px; object-fit: cover;"/>
+</a>
+<div class="product-info" style="padding: 18px; display: flex; flex-direction: column; flex-grow: 1;">
+<h3 style="margin: 0 0 4px 0; color: #ffffff; font-size: 1rem; font-family: 'Inter', sans-serif;">Designer Sunglasses</h3>
+<div style="display: flex; align-items: center; gap: 8px; margin-bottom: 12px;">
+<span style="text-decoration: line-through; color: #666; font-size: 0.9rem;">$2,166</span>
+<span style="color: #ffffff; font-weight: 700; font-size: 1.1rem;">$650</span>
+<span style="background: rgba(255,255,255,0.2); color: #fff; padding: 2px 8px; border-radius: 4px; font-size: 0.75rem;">-70%</span>
+</div>
+<div style="display: flex; gap: 10px; margin-top: auto;">
+<button onclick="event.stopPropagation(); addToCart('Designer Sunglasses', '$7,700', '/images/designer-sunglasses.png'); proceedToCheckout();" style="flex:1;padding:10px;background:#000;color:#fff;border:1px solid #fff;border-radius:6px;cursor:pointer;font-weight:600;font-size:0.9rem;transition:transform 0.2s;margin-right:10px;">Buy Now</button>
+<button onclick="addToCart('Designer Sunglasses', '$7,700', '/images/designer-sunglasses.png')" style="flex:1;padding:10px;background:#fff;color:#000;border:none;border-radius:6px;cursor:pointer;font-weight:600;font-size:0.9rem;transition:transform 0.2s;">Add to Cart</button>
+<button onclick="addToWishlist('Designer Sunglasses', '$7,700', '/images/designer-sunglasses.png')" style="width:38px;height:38px;border-radius:6px;background:rgba(255,255,255,0.05);color:#fff;border:1px solid rgba(255,255,255,0.2);font-size:1.2rem;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background 0.2s;">♡</button>
+</div>
+<button onclick="window.location.href='/product?title=Designer%20Sunglasses&amp;price=650&amp;image=../images/designer-sunglasses.png'" style="width:100%;padding:10px;background:transparent;color:#fff;border:1px solid #fff;border-radius:6px;cursor:pointer;font-weight:600;margin-top:10px;transition:background 0.2s;">Learn More</button>
+</div>
+</div>
+<div class="product-card" data-category="accessories men" style="background: var(--bg-light, #111); border-radius: 12px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.3); border: 1px solid var(--border-color, #333); display: flex; flex-direction: column;">
+<a href="/product?title=Italian%20Leather%20Briefcase&amp;price=2800&amp;image=../images/leather-briefcase.png" style="display: block; text-decoration: none;">
+<img alt="Italian Leather Briefcase" class="product-image" src="/images/leather-briefcase.png" style="width: 100%; height: 280px; object-fit: cover;"/>
+</a>
+<div class="product-info" style="padding: 18px; display: flex; flex-direction: column; flex-grow: 1;">
+<h3 style="margin: 0 0 4px 0; color: #ffffff; font-size: 1rem; font-family: 'Inter', sans-serif;">Italian Leather Briefcase</h3>
+<div style="display: flex; align-items: center; gap: 8px; margin-bottom: 12px;">
+<span style="text-decoration: line-through; color: #666; font-size: 0.9rem;">$9,333</span>
+<span style="color: #ffffff; font-weight: 700; font-size: 1.1rem;">$2,800</span>
+<span style="background: rgba(255,255,255,0.2); color: #fff; padding: 2px 8px; border-radius: 4px; font-size: 0.75rem;">-70%</span>
+</div>
+<div style="display: flex; gap: 10px; margin-top: auto;">
+<button onclick="event.stopPropagation(); addToCart('Italian Leather Briefcase', '$5,800', '/images/leather-briefcase.png'); proceedToCheckout();" style="flex:1;padding:10px;background:#000;color:#fff;border:1px solid #fff;border-radius:6px;cursor:pointer;font-weight:600;font-size:0.9rem;transition:transform 0.2s;margin-right:10px;">Buy Now</button>
+<button onclick="addToCart('Italian Leather Briefcase', '$5,800', '/images/leather-briefcase.png')" style="flex:1;padding:10px;background:#fff;color:#000;border:none;border-radius:6px;cursor:pointer;font-weight:600;font-size:0.9rem;transition:transform 0.2s;">Add to Cart</button>
+<button onclick="addToWishlist('Italian Leather Briefcase', '$5,800', '/images/leather-briefcase.png')" style="width:38px;height:38px;border-radius:6px;background:rgba(255,255,255,0.05);color:#fff;border:1px solid rgba(255,255,255,0.2);font-size:1.2rem;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background 0.2s;">♡</button>
+</div>
+<button onclick="window.location.href='/product?title=Italian%20Leather%20Briefcase&amp;price=2800&amp;image=../images/leather-briefcase.png'" style="width:100%;padding:10px;background:transparent;color:#fff;border:1px solid #fff;border-radius:6px;cursor:pointer;font-weight:600;margin-top:10px;transition:background 0.2s;">Learn More</button>
+</div>
+</div>
+<div class="product-card" data-category="accessories men" style="background: var(--bg-light, #111); border-radius: 12px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.3); border: 1px solid var(--border-color, #333); display: flex; flex-direction: column;">
+<a href="/product?title=Premium%20Cologne&amp;price=350&amp;image=../images/premium-cologne.png" style="display: block; text-decoration: none;">
+<img alt="Premium Cologne" class="product-image" src="/images/premium-cologne.png" style="width: 100%; height: 280px; object-fit: cover;"/>
+</a>
+<div class="product-info" style="padding: 18px; display: flex; flex-direction: column; flex-grow: 1;">
+<h3 style="margin: 0 0 4px 0; color: #ffffff; font-size: 1rem; font-family: 'Inter', sans-serif;">Premium Cologne</h3>
+<div style="display: flex; align-items: center; gap: 8px; margin-bottom: 12px;">
+<span style="text-decoration: line-through; color: #666; font-size: 0.9rem;">$1,166</span>
+<span style="color: #ffffff; font-weight: 700; font-size: 1.1rem;">$350</span>
+<span style="background: rgba(255,255,255,0.2); color: #fff; padding: 2px 8px; border-radius: 4px; font-size: 0.75rem;">-70%</span>
+</div>
+<div style="display: flex; gap: 10px; margin-top: auto;">
+<button onclick="event.stopPropagation(); addToCart('Premium Cologne', '$7,800', '/images/premium-cologne.png'); proceedToCheckout();" style="flex:1;padding:10px;background:#000;color:#fff;border:1px solid #fff;border-radius:6px;cursor:pointer;font-weight:600;font-size:0.9rem;transition:transform 0.2s;margin-right:10px;">Buy Now</button>
+<button onclick="addToCart('Premium Cologne', '$7,800', '/images/premium-cologne.png')" style="flex:1;padding:10px;background:#fff;color:#000;border:none;border-radius:6px;cursor:pointer;font-weight:600;font-size:0.9rem;transition:transform 0.2s;">Add to Cart</button>
+<button onclick="addToWishlist('Premium Cologne', '$7,800', '/images/premium-cologne.png')" style="width:38px;height:38px;border-radius:6px;background:rgba(255,255,255,0.05);color:#fff;border:1px solid rgba(255,255,255,0.2);font-size:1.2rem;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background 0.2s;">♡</button>
+</div>
+<button onclick="window.location.href='/product?title=Premium%20Cologne&amp;price=350&amp;image=../images/premium-cologne.png'" style="width:100%;padding:10px;background:transparent;color:#fff;border:1px solid #fff;border-radius:6px;cursor:pointer;font-weight:600;margin-top:10px;transition:background 0.2s;">Learn More</button>
+</div>
+</div>
+<div class="product-card" data-category="jewelry women" style="background: var(--bg-light, #111); border-radius: 12px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.3); border: 1px solid var(--border-color, #333); display: flex; flex-direction: column;">
+<a href="/product?title=Diamond%20Necklace&amp;price=15000&amp;image=../images/diamond-necklace.png" style="display: block; text-decoration: none;">
+<img alt="Diamond Necklace" class="product-image" src="/images/diamond-necklace.png" style="width: 100%; height: 280px; object-fit: cover;"/>
+</a>
+<div class="product-info" style="padding: 18px; display: flex; flex-direction: column; flex-grow: 1;">
+<h3 style="margin: 0 0 4px 0; color: #ffffff; font-size: 1rem; font-family: 'Inter', sans-serif;">Diamond Necklace</h3>
+<div style="display: flex; align-items: center; gap: 8px; margin-bottom: 12px;">
+<span style="text-decoration: line-through; color: #666; font-size: 0.9rem;">$50,000</span>
+<span style="color: #ffffff; font-weight: 700; font-size: 1.1rem;">$15,000</span>
+<span style="background: rgba(255,255,255,0.2); color: #fff; padding: 2px 8px; border-radius: 4px; font-size: 0.75rem;">-70%</span>
+</div>
+<div style="display: flex; gap: 10px; margin-top: auto;">
+<button onclick="event.stopPropagation(); addToCart('Diamond Necklace', '$8,500', '/images/diamond-necklace.png'); proceedToCheckout();" style="flex:1;padding:10px;background:#000;color:#fff;border:1px solid #fff;border-radius:6px;cursor:pointer;font-weight:600;font-size:0.9rem;transition:transform 0.2s;margin-right:10px;">Buy Now</button>
+<button onclick="addToCart('Diamond Necklace', '$8,500', '/images/diamond-necklace.png')" style="flex:1;padding:10px;background:#fff;color:#000;border:none;border-radius:6px;cursor:pointer;font-weight:600;font-size:0.9rem;transition:transform 0.2s;">Add to Cart</button>
+<button onclick="addToWishlist('Diamond Necklace', '$8,500', '/images/diamond-necklace.png')" style="width:38px;height:38px;border-radius:6px;background:rgba(255,255,255,0.05);color:#fff;border:1px solid rgba(255,255,255,0.2);font-size:1.2rem;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background 0.2s;">♡</button>
+</div>
+<button onclick="window.location.href='/product?title=Diamond%20Necklace&amp;price=15000&amp;image=../images/diamond-necklace.png'" style="width:100%;padding:10px;background:transparent;color:#fff;border:1px solid #fff;border-radius:6px;cursor:pointer;font-weight:600;margin-top:10px;transition:background 0.2s;">Learn More</button>
+</div>
+</div>
+<div class="product-card" data-category="handbags women" style="background: var(--bg-light, #111); border-radius: 12px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.3); border: 1px solid var(--border-color, #333); display: flex; flex-direction: column;">
+<a href="/product?title=Designer%20Handbag&amp;price=4500&amp;image=../images/designer-handbag.png" style="display: block; text-decoration: none;">
+<img alt="Designer Handbag" class="product-image" src="/images/designer-handbag.png" style="width: 100%; height: 280px; object-fit: cover;"/>
+</a>
+<div class="product-info" style="padding: 18px; display: flex; flex-direction: column; flex-grow: 1;">
+<h3 style="margin: 0 0 4px 0; color: #ffffff; font-size: 1rem; font-family: 'Inter', sans-serif;">Designer Handbag</h3>
+<div style="display: flex; align-items: center; gap: 8px; margin-bottom: 12px;">
+<span style="text-decoration: line-through; color: #666; font-size: 0.9rem;">$15,000</span>
+<span style="color: #ffffff; font-weight: 700; font-size: 1.1rem;">$4,500</span>
+<span style="background: rgba(255,255,255,0.2); color: #fff; padding: 2px 8px; border-radius: 4px; font-size: 0.75rem;">-70%</span>
+</div>
+<div style="display: flex; gap: 10px; margin-top: auto;">
+<button onclick="event.stopPropagation(); addToCart('Designer Handbag', '$3,200', '/images/designer-handbag.png'); proceedToCheckout();" style="flex:1;padding:10px;background:#000;color:#fff;border:1px solid #fff;border-radius:6px;cursor:pointer;font-weight:600;font-size:0.9rem;transition:transform 0.2s;margin-right:10px;">Buy Now</button>
+<button onclick="addToCart('Designer Handbag', '$3,200', '/images/designer-handbag.png')" style="flex:1;padding:10px;background:#fff;color:#000;border:none;border-radius:6px;cursor:pointer;font-weight:600;font-size:0.9rem;transition:transform 0.2s;">Add to Cart</button>
+<button onclick="addToWishlist('Designer Handbag', '$3,200', '/images/designer-handbag.png')" style="width:38px;height:38px;border-radius:6px;background:rgba(255,255,255,0.05);color:#fff;border:1px solid rgba(255,255,255,0.2);font-size:1.2rem;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background 0.2s;">♡</button>
+</div>
+<button onclick="window.location.href='/product?title=Designer%20Handbag&amp;price=4500&amp;image=../images/designer-handbag.png'" style="width:100%;padding:10px;background:transparent;color:#fff;border:1px solid #fff;border-radius:6px;cursor:pointer;font-weight:600;margin-top:10px;transition:background 0.2s;">Learn More</button>
+</div>
+</div>
+<div class="product-card" data-category="timepieces women" style="background: var(--bg-light, #111); border-radius: 12px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.3); border: 1px solid var(--border-color, #333); display: flex; flex-direction: column;">
+<a href="/product?title=Luxury%20Women%27s%20Watch&amp;price=6800&amp;image=../images/luxury-watch-women.png" style="display: block; text-decoration: none;">
+<img alt="Luxury Womens Watch" class="product-image" src="/images/luxury-watch-women.png" style="width: 100%; height: 280px; object-fit: cover;"/>
+</a>
+<div class="product-info" style="padding: 18px; display: flex; flex-direction: column; flex-grow: 1;">
+<h3 style="margin: 0 0 4px 0; color: #ffffff; font-size: 1rem; font-family: 'Inter', sans-serif;">Luxury Womens Watch</h3>
+<div style="display: flex; align-items: center; gap: 8px; margin-bottom: 12px;">
+<span style="text-decoration: line-through; color: #666; font-size: 0.9rem;">$22,666</span>
+<span style="color: #ffffff; font-weight: 700; font-size: 1.1rem;">$6,800</span>
+<span style="background: rgba(255,255,255,0.2); color: #fff; padding: 2px 8px; border-radius: 4px; font-size: 0.75rem;">-70%</span>
+</div>
+<div style="display: flex; gap: 10px; margin-top: auto;">
+<button onclick="event.stopPropagation(); addToCart('Luxury Womens Watch', '$7,600', '/images/luxury-watch-women.png'); proceedToCheckout();" style="flex:1;padding:10px;background:#000;color:#fff;border:1px solid #fff;border-radius:6px;cursor:pointer;font-weight:600;font-size:0.9rem;transition:transform 0.2s;margin-right:10px;">Buy Now</button>
+<button onclick="addToCart('Luxury Womens Watch', '$7,600', '/images/luxury-watch-women.png')" style="flex:1;padding:10px;background:#fff;color:#000;border:none;border-radius:6px;cursor:pointer;font-weight:600;font-size:0.9rem;transition:transform 0.2s;">Add to Cart</button>
+<button onclick="addToWishlist('Luxury Womens Watch', '$7,600', '/images/luxury-watch-women.png')" style="width:38px;height:38px;border-radius:6px;background:rgba(255,255,255,0.05);color:#fff;border:1px solid rgba(255,255,255,0.2);font-size:1.2rem;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background 0.2s;">♡</button>
+</div>
+<button onclick="window.location.href='/product?title=Luxury%20Women%27s%20Watch&amp;price=6800&amp;image=../images/luxury-watch-women.png'" style="width:100%;padding:10px;background:transparent;color:#fff;border:1px solid #fff;border-radius:6px;cursor:pointer;font-weight:600;margin-top:10px;transition:background 0.2s;">Learn More</button>
+</div>
+</div>
+<div class="product-card" data-category="accessories women" style="background: var(--bg-light, #111); border-radius: 12px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.3); border: 1px solid var(--border-color, #333); display: flex; flex-direction: column;">
+<a href="/product?title=Silk%20Scarf&amp;price=380&amp;image=../images/silk-scarf.png" style="display: block; text-decoration: none;">
+<img alt="Silk Scarf" class="product-image" src="/images/silk-scarf.png" style="width: 100%; height: 280px; object-fit: cover;"/>
+</a>
+<div class="product-info" style="padding: 18px; display: flex; flex-direction: column; flex-grow: 1;">
+<h3 style="margin: 0 0 4px 0; color: #ffffff; font-size: 1rem; font-family: 'Inter', sans-serif;">Silk Scarf</h3>
+<div style="display: flex; align-items: center; gap: 8px; margin-bottom: 12px;">
+<span style="text-decoration: line-through; color: #666; font-size: 0.9rem;">$1,266</span>
+<span style="color: #ffffff; font-weight: 700; font-size: 1.1rem;">$380</span>
+<span style="background: rgba(255,255,255,0.2); color: #fff; padding: 2px 8px; border-radius: 4px; font-size: 0.75rem;">-70%</span>
+</div>
+<div style="display: flex; gap: 10px; margin-top: auto;">
+<button onclick="event.stopPropagation(); addToCart('Silk Scarf', '$4,400', '/images/silk-scarf.png'); proceedToCheckout();" style="flex:1;padding:10px;background:#000;color:#fff;border:1px solid #fff;border-radius:6px;cursor:pointer;font-weight:600;font-size:0.9rem;transition:transform 0.2s;margin-right:10px;">Buy Now</button>
+<button onclick="addToCart('Silk Scarf', '$4,400', '/images/silk-scarf.png')" style="flex:1;padding:10px;background:#fff;color:#000;border:none;border-radius:6px;cursor:pointer;font-weight:600;font-size:0.9rem;transition:transform 0.2s;">Add to Cart</button>
+<button onclick="addToWishlist('Silk Scarf', '$4,400', '/images/silk-scarf.png')" style="width:38px;height:38px;border-radius:6px;background:rgba(255,255,255,0.05);color:#fff;border:1px solid rgba(255,255,255,0.2);font-size:1.2rem;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background 0.2s;">♡</button>
+</div>
+<button onclick="window.location.href='/product?title=Silk%20Scarf&amp;price=380&amp;image=../images/silk-scarf.png'" style="width:100%;padding:10px;background:transparent;color:#fff;border:1px solid #fff;border-radius:6px;cursor:pointer;font-weight:600;margin-top:10px;transition:background 0.2s;">Learn More</button>
+</div>
+</div>
+<div class="product-card" data-category="accessories women" style="background: var(--bg-light, #111); border-radius: 12px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.3); border: 1px solid var(--border-color, #333); display: flex; flex-direction: column;">
+<a href="/product?title=Designer%20Heels&amp;price=1200&amp;image=../images/designer-heels.png" style="display: block; text-decoration: none;">
+<img alt="Designer Heels" class="product-image" src="/images/designer-heels.png" style="width: 100%; height: 280px; object-fit: cover;"/>
+</a>
+<div class="product-info" style="padding: 18px; display: flex; flex-direction: column; flex-grow: 1;">
+<h3 style="margin: 0 0 4px 0; color: #ffffff; font-size: 1rem; font-family: 'Inter', sans-serif;">Designer Heels</h3>
+<div style="display: flex; align-items: center; gap: 8px; margin-bottom: 12px;">
+<span style="text-decoration: line-through; color: #666; font-size: 0.9rem;">$4,000</span>
+<span style="color: #ffffff; font-weight: 700; font-size: 1.1rem;">$1,200</span>
+<span style="background: rgba(255,255,255,0.2); color: #fff; padding: 2px 8px; border-radius: 4px; font-size: 0.75rem;">-70%</span>
+</div>
+<div style="display: flex; gap: 10px; margin-top: auto;">
+<button onclick="event.stopPropagation(); addToCart('Designer Heels', '$7,300', '/images/designer-heels.png'); proceedToCheckout();" style="flex:1;padding:10px;background:#000;color:#fff;border:1px solid #fff;border-radius:6px;cursor:pointer;font-weight:600;font-size:0.9rem;transition:transform 0.2s;margin-right:10px;">Buy Now</button>
+<button onclick="addToCart('Designer Heels', '$7,300', '/images/designer-heels.png')" style="flex:1;padding:10px;background:#fff;color:#000;border:none;border-radius:6px;cursor:pointer;font-weight:600;font-size:0.9rem;transition:transform 0.2s;">Add to Cart</button>
+<button onclick="addToWishlist('Designer Heels', '$7,300', '/images/designer-heels.png')" style="width:38px;height:38px;border-radius:6px;background:rgba(255,255,255,0.05);color:#fff;border:1px solid rgba(255,255,255,0.2);font-size:1.2rem;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background 0.2s;">♡</button>
+</div>
+<button onclick="window.location.href='/product?title=Designer%20Heels&amp;price=1200&amp;image=../images/designer-heels.png'" style="width:100%;padding:10px;background:transparent;color:#fff;border:1px solid #fff;border-radius:6px;cursor:pointer;font-weight:600;margin-top:10px;transition:background 0.2s;">Learn More</button>
+</div>
+</div>
+<div class="product-card" data-category="timepieces men" style="background: var(--bg-light, #111); border-radius: 12px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.3); border: 1px solid var(--border-color, #333); display: flex; flex-direction: column;">
+<a href="/product?title=Classic%20Dress%20Watch&amp;price=5200&amp;image=../images/timeless-watches.png" style="display: block; text-decoration: none;">
+<img alt="Classic Dress Watch" class="product-image" src="/images/timeless-watches.png" style="width: 100%; height: 280px; object-fit: cover;"/>
+</a>
+<div class="product-info" style="padding: 18px; display: flex; flex-direction: column; flex-grow: 1;">
+<h3 style="margin: 0 0 4px 0; color: #ffffff; font-size: 1rem; font-family: 'Inter', sans-serif;">Classic Dress Watch</h3>
+<div style="display: flex; align-items: center; gap: 8px; margin-bottom: 12px;">
+<span style="text-decoration: line-through; color: #666; font-size: 0.9rem;">$17,333</span>
+<span style="color: #ffffff; font-weight: 700; font-size: 1.1rem;">$5,200</span>
+<span style="background: rgba(255,255,255,0.2); color: #fff; padding: 2px 8px; border-radius: 4px; font-size: 0.75rem;">-70%</span>
+</div>
+<div style="display: flex; gap: 10px; margin-top: auto;">
+<button onclick="event.stopPropagation(); addToCart('Classic Dress Watch', '$4,800', '/images/timeless-watches.png'); proceedToCheckout();" style="flex:1;padding:10px;background:#000;color:#fff;border:1px solid #fff;border-radius:6px;cursor:pointer;font-weight:600;font-size:0.9rem;transition:transform 0.2s;margin-right:10px;">Buy Now</button>
+<button onclick="addToCart('Classic Dress Watch', '$4,800', '/images/timeless-watches.png')" style="flex:1;padding:10px;background:#fff;color:#000;border:none;border-radius:6px;cursor:pointer;font-weight:600;font-size:0.9rem;transition:transform 0.2s;">Add to Cart</button>
+<button onclick="addToWishlist('Classic Dress Watch', '$4,800', '/images/timeless-watches.png')" style="width:38px;height:38px;border-radius:6px;background:rgba(255,255,255,0.05);color:#fff;border:1px solid rgba(255,255,255,0.2);font-size:1.2rem;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background 0.2s;">♡</button>
+</div>
+<button onclick="window.location.href='/product?title=Classic%20Dress%20Watch&amp;price=5200&amp;image=../images/timeless-watches.png'" style="width:100%;padding:10px;background:transparent;color:#fff;border:1px solid #fff;border-radius:6px;cursor:pointer;font-weight:600;margin-top:10px;transition:background 0.2s;">Learn More</button>
+</div>
+</div>
+<div class="product-card" data-category="handbags women" style="background: var(--bg-light, #111); border-radius: 12px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.3); border: 1px solid var(--border-color, #333); display: flex; flex-direction: column;">
+<a href="/product?title=Luxury%20Tote%20Bag&amp;price=3800&amp;image=../images/luxury-handbags-hero.png" style="display: block; text-decoration: none;">
+<img alt="Luxury Tote Bag" class="product-image" src="/images/luxury-handbags-hero.png" style="width: 100%; height: 280px; object-fit: cover;"/>
+</a>
+<div class="product-info" style="padding: 18px; display: flex; flex-direction: column; flex-grow: 1;">
+<h3 style="margin: 0 0 4px 0; color: #ffffff; font-size: 1rem; font-family: 'Inter', sans-serif;">Luxury Tote Bag</h3>
+<div style="display: flex; align-items: center; gap: 8px; margin-bottom: 12px;">
+<span style="text-decoration: line-through; color: #666; font-size: 0.9rem;">$12,666</span>
+<span style="color: #ffffff; font-weight: 700; font-size: 1.1rem;">$3,800</span>
+<span style="background: rgba(255,255,255,0.2); color: #fff; padding: 2px 8px; border-radius: 4px; font-size: 0.75rem;">-70%</span>
+</div>
+<div style="display: flex; gap: 10px; margin-top: auto;">
+<button onclick="event.stopPropagation(); addToCart('Luxury Tote Bag', '$9,500', '/images/luxury-handbags-hero.png'); proceedToCheckout();" style="flex:1;padding:10px;background:#000;color:#fff;border:1px solid #fff;border-radius:6px;cursor:pointer;font-weight:600;font-size:0.9rem;transition:transform 0.2s;margin-right:10px;">Buy Now</button>
+<button onclick="addToCart('Luxury Tote Bag', '$9,500', '/images/luxury-handbags-hero.png')" style="flex:1;padding:10px;background:#fff;color:#000;border:none;border-radius:6px;cursor:pointer;font-weight:600;font-size:0.9rem;transition:transform 0.2s;">Add to Cart</button>
+<button onclick="addToWishlist('Luxury Tote Bag', '$9,500', '/images/luxury-handbags-hero.png')" style="width:38px;height:38px;border-radius:6px;background:rgba(255,255,255,0.05);color:#fff;border:1px solid rgba(255,255,255,0.2);font-size:1.2rem;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background 0.2s;">♡</button>
+</div>
+<button onclick="window.location.href='/product?title=Luxury%20Tote%20Bag&amp;price=3800&amp;image=../images/luxury-handbags-hero.png'" style="width:100%;padding:10px;background:transparent;color:#fff;border:1px solid #fff;border-radius:6px;cursor:pointer;font-weight:600;margin-top:10px;transition:background 0.2s;">Learn More</button>
+</div>
+</div>
+<div class="product-card" data-category="jewelry women" style="background: var(--bg-light, #111); border-radius: 12px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.3); border: 1px solid var(--border-color, #333); display: flex; flex-direction: column;">
+<a href="/product?title=Gold%20Bracelet&amp;price=2400&amp;image=../images/jewelry-womens.jpg" style="display: block; text-decoration: none;">
+<img alt="Gold Bracelet" class="product-image" src="/images/jewelry-womens.jpg" style="width: 100%; height: 280px; object-fit: cover;"/>
+</a>
+<div class="product-info" style="padding: 18px; display: flex; flex-direction: column; flex-grow: 1;">
+<h3 style="margin: 0 0 4px 0; color: #ffffff; font-size: 1rem; font-family: 'Inter', sans-serif;">Gold Bracelet</h3>
+<div style="display: flex; align-items: center; gap: 8px; margin-bottom: 12px;">
+<span style="text-decoration: line-through; color: #666; font-size: 0.9rem;">$8,000</span>
+<span style="color: #ffffff; font-weight: 700; font-size: 1.1rem;">$2,400</span>
+<span style="background: rgba(255,255,255,0.2); color: #fff; padding: 2px 8px; border-radius: 4px; font-size: 0.75rem;">-70%</span>
+</div>
+<div style="display: flex; gap: 10px; margin-top: auto;">
+<button onclick="event.stopPropagation(); addToCart('Gold Bracelet', '$8,500', '/images/jewelry-womens.jpg'); proceedToCheckout();" style="flex:1;padding:10px;background:#000;color:#fff;border:1px solid #fff;border-radius:6px;cursor:pointer;font-weight:600;font-size:0.9rem;transition:transform 0.2s;margin-right:10px;">Buy Now</button>
+<button onclick="addToCart('Gold Bracelet', '$8,500', '/images/jewelry-womens.jpg')" style="flex:1;padding:10px;background:#fff;color:#000;border:none;border-radius:6px;cursor:pointer;font-weight:600;font-size:0.9rem;transition:transform 0.2s;">Add to Cart</button>
+<button onclick="addToWishlist('Gold Bracelet', '$8,500', '/images/jewelry-womens.jpg')" style="width:38px;height:38px;border-radius:6px;background:rgba(255,255,255,0.05);color:#fff;border:1px solid rgba(255,255,255,0.2);font-size:1.2rem;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background 0.2s;">♡</button>
+</div>
+<button onclick="window.location.href='/product?title=Gold%20Bracelet&amp;price=2400&amp;image=../images/jewelry-womens.jpg'" style="width:100%;padding:10px;background:transparent;color:#fff;border:1px solid #fff;border-radius:6px;cursor:pointer;font-weight:600;margin-top:10px;transition:background 0.2s;">Learn More</button>
+</div>
+</div>
+<div class="product-card" data-category="accessories men" style="background: var(--bg-light, #111); border-radius: 12px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.3); border: 1px solid var(--border-color, #333); display: flex; flex-direction: column;">
+<a href="/product?title=Leather%20Belt&amp;price=580&amp;image=../images/luxury-accessories.png" style="display: block; text-decoration: none;">
+<img alt="Leather Belt" class="product-image" src="/images/luxury-accessories.png" style="width: 100%; height: 280px; object-fit: cover;"/>
+</a>
+<div class="product-info" style="padding: 18px; display: flex; flex-direction: column; flex-grow: 1;">
+<h3 style="margin: 0 0 4px 0; color: #ffffff; font-size: 1rem; font-family: 'Inter', sans-serif;">Leather Belt</h3>
+<div style="display: flex; align-items: center; gap: 8px; margin-bottom: 12px;">
+<span style="text-decoration: line-through; color: #666; font-size: 0.9rem;">$1,933</span>
+<span style="color: #ffffff; font-weight: 700; font-size: 1.1rem;">$580</span>
+<span style="background: rgba(255,255,255,0.2); color: #fff; padding: 2px 8px; border-radius: 4px; font-size: 0.75rem;">-70%</span>
+</div>
+<div style="display: flex; gap: 10px; margin-top: auto;">
+<button onclick="event.stopPropagation(); addToCart('Leather Belt', '$3,600', '/images/luxury-accessories.png'); proceedToCheckout();" style="flex:1;padding:10px;background:#000;color:#fff;border:1px solid #fff;border-radius:6px;cursor:pointer;font-weight:600;font-size:0.9rem;transition:transform 0.2s;margin-right:10px;">Buy Now</button>
+<button onclick="addToCart('Leather Belt', '$3,600', '/images/luxury-accessories.png')" style="flex:1;padding:10px;background:#fff;color:#000;border:none;border-radius:6px;cursor:pointer;font-weight:600;font-size:0.9rem;transition:transform 0.2s;">Add to Cart</button>
+<button onclick="addToWishlist('Leather Belt', '$3,600', '/images/luxury-accessories.png')" style="width:38px;height:38px;border-radius:6px;background:rgba(255,255,255,0.05);color:#fff;border:1px solid rgba(255,255,255,0.2);font-size:1.2rem;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background 0.2s;">♡</button>
+</div>
+<button onclick="window.location.href='/product?title=Leather%20Belt&amp;price=580&amp;image=../images/luxury-accessories.png'" style="width:100%;padding:10px;background:transparent;color:#fff;border:1px solid #fff;border-radius:6px;cursor:pointer;font-weight:600;margin-top:10px;transition:background 0.2s;">Learn More</button>
+</div>
+</div>
+<div class="product-card" data-category="accessories women" style="background: var(--bg-light, #111); border-radius: 12px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.3); border: 1px solid var(--border-color, #333); display: flex; flex-direction: column;">
+<a href="/product?title=Evening%20Clutch&amp;price=1850&amp;image=../images/luxury-bags.png" style="display: block; text-decoration: none;">
+<img alt="Evening Clutch" class="product-image" src="/images/luxury-bags.png" style="width: 100%; height: 280px; object-fit: cover;"/>
+</a>
+<div class="product-info" style="padding: 18px; display: flex; flex-direction: column; flex-grow: 1;">
+<h3 style="margin: 0 0 4px 0; color: #ffffff; font-size: 1rem; font-family: 'Inter', sans-serif;">Evening Clutch</h3>
+<div style="display: flex; align-items: center; gap: 8px; margin-bottom: 12px;">
+<span style="text-decoration: line-through; color: #666; font-size: 0.9rem;">$6,166</span>
+<span style="color: #ffffff; font-weight: 700; font-size: 1.1rem;">$1,850</span>
+<span style="background: rgba(255,255,255,0.2); color: #fff; padding: 2px 8px; border-radius: 4px; font-size: 0.75rem;">-70%</span>
+</div>
+<div style="display: flex; gap: 10px; margin-top: auto;">
+<button onclick="event.stopPropagation(); addToCart('Evening Clutch', '$9,400', '/images/luxury-bags.png'); proceedToCheckout();" style="flex:1;padding:10px;background:#000;color:#fff;border:1px solid #fff;border-radius:6px;cursor:pointer;font-weight:600;font-size:0.9rem;transition:transform 0.2s;margin-right:10px;">Buy Now</button>
+<button onclick="addToCart('Evening Clutch', '$9,400', '/images/luxury-bags.png')" style="flex:1;padding:10px;background:#fff;color:#000;border:none;border-radius:6px;cursor:pointer;font-weight:600;font-size:0.9rem;transition:transform 0.2s;">Add to Cart</button>
+<button onclick="addToWishlist('Evening Clutch', '$9,400', '/images/luxury-bags.png')" style="width:38px;height:38px;border-radius:6px;background:rgba(255,255,255,0.05);color:#fff;border:1px solid rgba(255,255,255,0.2);font-size:1.2rem;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background 0.2s;">♡</button>
+</div>
+<button onclick="window.location.href='/product?title=Evening%20Clutch&amp;price=1850&amp;image=../images/luxury-bags.png'" style="width:100%;padding:10px;background:transparent;color:#fff;border:1px solid #fff;border-radius:6px;cursor:pointer;font-weight:600;margin-top:10px;transition:background 0.2s;">Learn More</button>
+</div>
+</div>
+</div>
+</div>
+</section>
+<script src="../cart.js"></script>
+<script src="../script.js"></script>
+<script>
+        function addToCartQuick(name, price, image) {
+            const product = {
+                id: `product-${Date.now()}-${Math.random()}`,
+                name: name,
+                price: price,
+                originalPrice: price * 1.5,
+                image: image,
+                size: 'Standard',
+                quantity: 1
+            };
+            cart.addItem(product);
+        }
+
+        // Filter functionality
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const productCards = document.querySelectorAll('.product-card');
+
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                // Remove active class from all buttons
+                filterBtns.forEach(b => b.classList.remove('active'));
+                // Add active class to clicked button
+                btn.classList.add('active');
+
+                const category = btn.dataset.category;
+
+                productCards.forEach(card => {
+                    if (category === 'all') {
+                        card.style.display = 'block';
+                    } else {
+                        if (card.dataset.category.includes(category)) {
+                            card.style.display = 'block';
+                        } else {
+                            card.style.display = 'none';
+                        }
+                    }
+                });
+            });
+        });
+    </script>
+<div class="cart-overlay" id="cartOverlay" onclick="closeCart()"></div>
+<div class="cart-sidebar" id="cartSidebar">
+<div class="cart-header">
+<h2>Shopping Cart</h2>
+<button class="cart-close" onclick="closeCart()">×</button>
+</div>
+<div class="cart-body">
+<div class="cart-empty" id="cartEmpty">
+<div class="cart-empty-icon">◇</div>
+<p>Your cart is empty</p>
+<button class="cta-button" onclick="closeCart()">Continue Shopping</button>
+</div>
+<div class="cart-content" id="cartContent">
+<div class="cart-items" id="cartItems"></div>
+</div>
+</div>
+<div class="cart-footer">
+<div class="cart-total">
+<span class="cart-total-label">Total:</span>
+<span class="cart-total-amount" id="cartTotal">
+.00</span>
+</div>
+<button class="cart-continue" onclick="closeCart()">Continue Shopping</button>
+</div>
+</div>
+<div class="wishlist-overlay" id="wishlistOverlay" onclick="closeWishlistSidebar()"></div>
+<div class="wishlist-sidebar" id="wishlistSidebar">
+<div class="wishlist-header">
+<h2>Your Wishlist</h2>
+<button class="wishlist-close" onclick="closeWishlistSidebar()">×</button>
+</div>
+<div class="wishlist-body">
+<div class="wishlist-empty" id="wishlistEmpty">
+<div class="wishlist-empty-icon">♡</div>
+<p>Your wishlist is empty</p>
+<button class="cta-button" onclick="closeWishlistSidebar()">Discover Products</button>
+</div>
+<div class="wishlist-content" id="wishlistContent">
+<div class="wishlist-items" id="wishlistItems"></div>
+</div>
+</div>
+</div> <!-- Footer -->
+<script src="/cart-sync.js?v=1783859609"></script>
+<footer class="footer">
+<div class="container">
+<div class="footer-content" style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 30px;">
+<div class="footer-section" style="flex: 1; min-width: 250px;">
+<h3>KURAJ FASHION</h3>
+<p>Redefining luxury through exclusive access and unparalleled craftsmanship.</p>
+<div style="margin-top: 20px;">
+<h4 style="margin-bottom: 10px;">Contact Us</h4>
+<p style="margin: 0; color: #999;">Email: support@kurajfashion.com</p>
+<p style="margin: 0; color: #999;">Phone: +1 (800) 587-2584</p>
+<p style="margin: 0; color: #999;">Hours: Mon-Sun: 8AM-10PM EST</p>
+</div>
+</div>
+<div class="footer-section" style="flex: 1; min-width: 150px;">
+<h4>Collections</h4>
+<ul>
+<li><a href="/collections/timepieces">Timepieces</a></li>
+<li><a href="/collections/jewelry">Jewelry</a></li>
+<li><a href="/collections/handbags">Handbags</a></li>
+<li><a href="/collections/accessories">Accessories</a></li>
+<li><a href="/collections/clothing">Clothing</a></li>
+<li><a href="/collections/home-decor">Home Décor</a></li>
+<li><a href="/collections/gifts">Gifts</a></li>
+<li><a href="/collections/limited-drops">Limited Drops</a></li>
+</ul>
+</div>
+<div class="footer-section" style="flex: 1; min-width: 150px;">
+<h4>For Him/For Her</h4>
+<ul>
+<li><a href="/for-him">For Him</a></li>
+<li><a href="/for-her">For Her</a></li>
+<li><a href="/all-products">All Products</a></li>
+</ul>
+<h4 style="margin-top: 20px;">Earn with Us</h4>
+<ul>
+<li><a href="/dashboard">Join the Club</a></li>
+<li><a href="/dashboard">VIP Benefits</a></li>
+<li><a href="/dashboard">Referral Program</a></li>
+<li><a href="/contact">Member Support</a></li>
+</ul>
+</div>
+<div class="footer-section" style="flex: 1; min-width: 150px;">
+<h4>About</h4>
+<ul>
+<li><a href="/about">About Us</a></li>
+<li><a href="javascript:void(0)">Our Collections</a></li>
+<li><a href="/dashboard">Membership</a></li>
+<li><a href="/contact">Contact Us</a></li>
+</ul>
+<h4 style="margin-top: 20px;">Support</h4>
+<ul>
+<li><a href="/contact">Contact Us</a></li>
+<li><a href="/legal/authentication">Authentication</a></li>
+<li><a href="/legal/shipping">Shipping</a></li>
+<li><a href="/legal/returns">Returns</a></li>
+</ul>
+</div>
+<div class="footer-section" style="flex: 1; min-width: 150px;">
+<h4>Policies</h4>
+<ul>
+<li><a href="/legal/privacy-policy">Privacy Policy</a></li>
+<li><a href="/legal/terms-of-service">Terms of Service</a></li>
+<li><a href="/legal/terms-conditions">Terms &amp; Conditions</a></li>
+<li><a href="/legal/cookie-notices">Cookie Notices</a></li>
+</ul>
+</div>
+</div>
+<div class="footer-bottom" style="text-align: center; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 20px; margin-top: 30px;">
+<p>© 2025 Kuraj Fashion. All rights reserved.</p>
+</div>
+</div>
+</footer>
+</div><script src="/header-injector.js?v=1783866855"></script>
+<script src="/footer-injector.js?v=999"></script>
+</body>
+</html>

@@ -1,0 +1,24 @@
+@import "tailwindcss";
+
+@layer base {
+  body {
+    background-color: #0b1416;
+    color: #e2e8f0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  }
+}
+
+/* Custom scrollbar for modern Reddit aesthetic */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #0f1a1c;
+}
+::-webkit-scrollbar-thumb {
+  background: #273739;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #394e51;
+}

@@ -1,0 +1,18 @@
+{
+  "version": 2,
+  "builds": [
+    {
+      "src": "threads-parser/api/index.js",
+      "use": "@vercel/node"
+    },
+    {
+      "src": "threads-parser/landing.html",
+      "use": "@vercel/static"
+    }
+  ],
+  "routes": [
+    { "src": "/api/(.*)", "dest": "threads-parser/api/index.js" },
+    { "src": "/api",      "dest": "threads-parser/api/index.js" },
+    { "src": "/",         "dest": "threads-parser/landing.html" }
+  ]
+}
